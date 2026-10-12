@@ -17,7 +17,6 @@
         <th>Horsepower</th>
         <th>Electric?</th>
         <th>Hybrid?</th>
-        <th>Details</th>
     </tr>
     </thead>
     <tbody>
@@ -32,11 +31,11 @@
             <td>
                 @if (Model.IsElectric)
                 {
-                    <span class="badge bg-primary">Yes</span>
+                    <span class="badge badge-pill bg-primary">Yes</span>
                 }
                 else
                 {
-                    <span class="badge bg-warning">No</span>
+                    <span class="badge badge-pill bg-warning">No</span>
                 }
             </td>
             <td>
@@ -49,8 +48,18 @@
                     <span class="badge bg-warning">No</span>
                 }
             </td>
-            <td><a asp-controller="Garage" asp-action="Index" class="btn btn-secondary">Back to Cars</a></td>
         </tr>
     </tbody>
 </table>
+<div class="row mb-3">
+    <div class="col-6 text-center">
+        <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Edit</a>
+    </div>
+    <div class="col-6 text-center">
+        
+    </div>
+</div>
+<div class="text-center">
+    <a asp-action="Index" class="btn btn-secondary">Back to Garage</a>
+</div>
 </div>

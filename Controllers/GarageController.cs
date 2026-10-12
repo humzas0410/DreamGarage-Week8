@@ -1,6 +1,7 @@
 using DreamGarage.Models;
 using Microsoft.AspNetCore.Mvc;
 using DreamGarage.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace DreamGarage.Controllers;
 
@@ -46,4 +47,59 @@ public class GarageController : Controller
         }
         return View(car);
     }
+            // GET: GarageScaffold/Edit/5
+    public async Task<IActionResult> Edit(int? id)
+    {
+        if (id == null)
+        {
+            return NotFound();
+        }
+
+        var car = await _context.Cars.FindAsync(id);
+        if (car == null)
+        {
+            return NotFound();
+        }
+        return View(car);
+    }
+
+    // POST: GarageScaffold/Edit/5
+    // To protect from overposting attacks, enable the specific properties you want to bind to.
+    // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> Edit(int id, [Bind("Id,Make,Model,Trim,Year,Color,Price,Horsepower,IsElectric,IsHybrid")] Car car)
+    {
+        if (id != car.Id)
+        {
+            return NotFound();
+        }
+
+        if (ModelState.IsValid)
+        {
+            try
+            {
+                _context.Update(car);
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!CarExists(car.Id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+            return RedirectToAction(nameof(Index));
+        }
+        return View(car);
+    }
+    private bool CarExists(int id)
+    {
+        return _context.Cars.Any(e => e.Id == id);
+    }
+    
 }
