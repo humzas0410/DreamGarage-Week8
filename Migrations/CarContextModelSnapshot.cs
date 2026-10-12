@@ -33,6 +33,9 @@ namespace DreamGarage.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Drivetrain")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("Horsepower")
                         .HasColumnType("int");
 
@@ -71,6 +74,7 @@ namespace DreamGarage.Migrations
                         {
                             Id = 1,
                             Color = "Orange",
+                            Drivetrain = "RWD",
                             Horsepower = 710,
                             IsElectric = false,
                             IsHybrid = false,
@@ -84,6 +88,7 @@ namespace DreamGarage.Migrations
                         {
                             Id = 2,
                             Color = "Black",
+                            Drivetrain = "AWD",
                             Horsepower = 580,
                             IsElectric = false,
                             IsHybrid = false,
@@ -97,6 +102,7 @@ namespace DreamGarage.Migrations
                         {
                             Id = 3,
                             Color = "Lime",
+                            Drivetrain = "AWD",
                             Horsepower = 759,
                             IsElectric = false,
                             IsHybrid = false,
@@ -110,6 +116,7 @@ namespace DreamGarage.Migrations
                         {
                             Id = 4,
                             Color = "Blue",
+                            Drivetrain = "AWD",
                             Horsepower = 627,
                             IsElectric = false,
                             IsHybrid = false,
@@ -123,6 +130,7 @@ namespace DreamGarage.Migrations
                         {
                             Id = 5,
                             Color = "Red",
+                            Drivetrain = "AWD",
                             Horsepower = 631,
                             IsElectric = false,
                             IsHybrid = true,
@@ -136,6 +144,7 @@ namespace DreamGarage.Migrations
                         {
                             Id = 6,
                             Color = "Silver",
+                            Drivetrain = "AWD",
                             Horsepower = 2107,
                             IsElectric = true,
                             IsHybrid = false,

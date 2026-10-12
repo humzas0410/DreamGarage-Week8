@@ -68,7 +68,7 @@ public class GarageController : Controller
     // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Edit(int id, [Bind("Id,Make,Model,Trim,Year,Color,Price,Horsepower,IsElectric,IsHybrid")] Car car)
+    public async Task<IActionResult> Edit(int id, [Bind("Id,Make,Model,Trim,Year,Color,Price,Horsepower,IsElectric,IsHybrid,Drivetrain")] Car car)
     {
         if (id != car.Id)
         {

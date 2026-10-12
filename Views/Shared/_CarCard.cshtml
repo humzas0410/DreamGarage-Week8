@@ -4,6 +4,7 @@
     <div class="card-body">
         <h5 class="card-title">@Model.Make @Model.Model @Model.Trim</h5>
         <p class="card-text"><strong>Horsepower:</strong> <u>@Model.Horsepower</u></p>
+        <p class="card-text"><strong>Drivetrain:</strong> @(Model.Drivetrain ?? "Not specified")</p>
         <p class="card-text fst-italic">Electric: @if (Model.IsElectric)
         {
             <span class="badge bg-primary">Yes</span>

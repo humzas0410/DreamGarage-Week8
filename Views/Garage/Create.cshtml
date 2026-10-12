@@ -4,9 +4,9 @@
 }
 
 <h1 class="display-2 text-center">Add a Car to Your Garage</h1>
-
-<form asp-action="Create" method="post" class="col-md-6">
-    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+<form asp-action="Create" method="post" class="row gx-4">
+    <div class="col-md-6">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
     <div class="mb-3">
         <label asp-for="Make" class="form-label"></label>
@@ -60,8 +60,29 @@
         <label asp-for="IsHybrid" class="form-check-label"></label>
     </div>
 
-    <button type="submit" class="btn btn-primary">Add it</button>
-    <a asp-action="Index" class="btn btn-link">Cancel</a>
+    <div class="mb-3">
+    <label asp-for="Drivetrain" class="form-label"></label>
+    <div class="d-flex py-1 gap-4">
+    <div class="form-check">
+        <input asp-for="Drivetrain" id="drivetrain-awd" type="radio" value="AWD" class="form-check-input" />
+        <label class="form-check-label" for="drivetrain-awd">AWD</label>
+    </div>
+    <div class="form-check">
+        <input asp-for="Drivetrain" id="drivetrain-rwd" type="radio" value="RWD" class="form-check-input" />
+        <label class="form-check-label" for="drivetrain-rwd">RWD</label>
+    </div>
+    <div class="form-check">
+        <input asp-for="Drivetrain" id="drivetrain-fwd" type="radio" value="FWD" class="form-check-input" />
+        <label class="form-check-label" for="drivetrain-fwd">FWD</label>
+    </div>
+   </div>
+  </div>
+ </div>
+
+    <div class="col-md-6 d-flex justify-content-center align-items-center gap-2">
+        <button type="submit" class="btn btn-primary">Add it</button>
+        <a asp-action="Index" class="btn btn-link">Cancel</a>
+    </div>
 </form>
 
 @section Scripts {

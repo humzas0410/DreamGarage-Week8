@@ -17,6 +17,7 @@
         <th>Horsepower</th>
         <th>Electric?</th>
         <th>Hybrid?</th>
+        <th>Drivetrain</th>
     </tr>
     </thead>
     <tbody>
@@ -48,6 +49,7 @@
                     <span class="badge bg-warning">No</span>
                 }
             </td>
+            <td>@(Model.Drivetrain ?? "Not specified")</td>
         </tr>
     </tbody>
 </table>

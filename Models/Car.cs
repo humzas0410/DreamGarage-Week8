@@ -24,4 +24,6 @@ public class Car
     public bool IsElectric { get; set; }
     [Display(Name = "Hybrid?")]
     public bool IsHybrid { get; set; }
+    [Display(Name = "Drivetrain:")]
+    public string? Drivetrain { get; set; }
 }
