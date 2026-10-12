@@ -47,7 +47,7 @@ public class GarageController : Controller
         }
         return View(car);
     }
-            // GET: GarageScaffold/Edit/5
+    // GET: Garage/Edit/5
     public async Task<IActionResult> Edit(int? id)
     {
         if (id == null)
@@ -63,7 +63,7 @@ public class GarageController : Controller
         return View(car);
     }
 
-    // POST: GarageScaffold/Edit/5
+    // POST: Garage/Edit/5
     // To protect from overposting attacks, enable the specific properties you want to bind to.
     // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
     [HttpPost]
@@ -101,5 +101,36 @@ public class GarageController : Controller
     {
         return _context.Cars.Any(e => e.Id == id);
     }
-    
+    // GET: Garage/Delete/5
+    public async Task<IActionResult> Delete(int? id)
+    {
+        if (id == null)
+        {
+            return NotFound();
+        }
+
+        var car = await _context.Cars
+            .FirstOrDefaultAsync(m => m.Id == id);
+        if (car == null)
+        {
+            return NotFound();
+        }
+
+        return View(car);
+    }
+
+    // POST: Garage/Delete/5
+    [HttpPost, ActionName("Delete")]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> DeleteConfirmed(int id)
+    {
+        var car = await _context.Cars.FindAsync(id);
+        if (car != null)
+        {
+            _context.Cars.Remove(car);
+        }
+
+        await _context.SaveChangesAsync();
+        return RedirectToAction(nameof(Index));
+    }
 }
